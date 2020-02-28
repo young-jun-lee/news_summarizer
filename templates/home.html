@@ -1,0 +1,20 @@
+<!doctype html>
+<html>
+<head>
+	<title>News Summarizer</title>
+	<link rel="stylesheet" href="{{ url_for('static',
+		filename='style.css') }}">
+</head>
+
+<body>
+	{% from "_formhelpers.html" import render_field %}
+	<div>Enter news article link here</div>
+	<form method=post action="/api">
+		<dl>
+			{{ render_field(form.link) }}
+		</dl>
+		<input type=submit value='Summarize!' name='submit_btn'>
+	</form>
+</body>
+
+</html>
