@@ -2,7 +2,7 @@ import cloudpickle
 import numpy as np
 import torch
 from nltk.tokenize import sent_tokenize
-from pytorch_transformers import XLNetTokenizer
+from pytorch_transformers import XLNetTokenizer, XLNetModel
 from sklearn.cluster import KMeans
 from sklearn.externals import joblib
 from sklearn.metrics import pairwise_distances_argmin_min
@@ -56,7 +56,8 @@ def get_txt(link):
 def model(txt):
     tokenized = sent_tokenize(txt)
     xlnet_tokenizer = XLNetTokenizer.from_pretrained('xlnet-large-cased')
-    model = torch.load('model')
+    # model = torch.load('model')
+    model = XLNetModel.from_pretrained('xlnet-large-cased')
     model.eval()
     kmeans, y_kmeans, summary = get_article_encodings(tokenized, xlnet_tokenizer, model)
     return summary
