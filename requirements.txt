@@ -1,4 +1,3 @@
-torch
 cloudpickle
 beautifulsoup4==4.8.2
 boto3==1.12.9
