@@ -39,7 +39,6 @@ sentencepiece
 six
 sklearn
 soupsieve
-tokenizers==0.5.2
 torch
 torchvision
 tqdm
