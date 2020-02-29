@@ -39,7 +39,6 @@ sentencepiece
 six
 sklearn
 soupsieve
-torchvision
 tqdm
 transformers==2.3.0
 urllib3
