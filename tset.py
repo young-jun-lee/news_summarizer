@@ -1,13 +1,11 @@
 import cloudpickle
-import dill
-import torch
-from pytorch_transformers import XLNetConfig, XLNetTokenizer, XLNetModel
-import nltk
-from nltk.tokenize import sent_tokenize
-from sklearn.cluster import KMeans
-from sklearn.metrics import pairwise_distances_argmin_min
 import numpy as np
+import torch
+from nltk.tokenize import sent_tokenize
+from pytorch_transformers import XLNetTokenizer
+from sklearn.cluster import KMeans
 from sklearn.externals import joblib
+from sklearn.metrics import pairwise_distances_argmin_min
 
 
 # nltk.download('punkt')
