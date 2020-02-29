@@ -39,7 +39,6 @@ sentencepiece
 six
 sklearn
 soupsieve
-torch
 torchvision
 tqdm
 transformers==2.3.0
