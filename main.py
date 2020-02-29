@@ -2,11 +2,16 @@ import flask
 from flask import render_template, request
 from wtforms import Form, validators, StringField
 from sklearn.externals import joblib
-import tset
+import cloudpickle
 
 main = flask.Flask(__name__)
 main.config["DEBUG"] = True  #if the app is malformed you get an actual debug config, rather than just a bad gateway msg.
 
+def get_txt(link):
+    with open('txt_scraper.pkl', 'rb') as f:
+        func = cloudpickle.load(f)
+    txt = func(link)
+    return txt
 
 class LinkForm(Form):
     link = StringField('',[validators.DataRequired()])
@@ -23,7 +28,7 @@ def hello():
     form = LinkForm(request.form)
     if request.method == "POST" and form.validate():
         name = request.form['link']
-        txt = tset.get_txt(name)
+        txt = get_txt(name)
         model = joblib.load('test_model')
         summary = model(txt)
         return render_template("about.html", name=summary)
